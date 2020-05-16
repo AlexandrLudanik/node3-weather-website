@@ -8,7 +8,8 @@ const forecast = (latitude, longitude, call) => {
         } else if (body.error) {
             call('Unable to find location', undefined)
         } else {
-            call(undefined, `It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out. Weather ${body.current.weather_descriptions[0]}`)
+            console.log(body.current);
+            call(undefined, `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out. The humidity ${body.current.humidity}%`)
         }
     })
 };
